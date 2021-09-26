@@ -1,0 +1,93 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+table {
+  table-layout: fixed;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+@keyframes player-name {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#player > span {
+  animation: player-name 0.5s ease-in-out;
+}
+
+#reset-button {
+  display: block;
+  margin: 1rem auto;
+  font-weight: bold;
+}
+
+#board {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+#board,
+#board th,
+#board td {
+  border: 1px solid black;
+}
+
+#board th,
+#board td {
+  text-align: center;
+  width: clamp(3rem, 10vw, 5rem);
+  height: clamp(3rem, 10vw, 5rem);
+}
+
+#board th {
+  background-color: darkorange;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity 0.35s ease-in-out;
+}
+
+#board th:hover {
+  opacity: 1;
+}
+
+@keyframes player-piece {
+  from {
+    transform: translate(0, -75%);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+.player-piece {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.75;
+  animation: player-piece 0.5s ease-in-out;
+}
+
+.winning-piece {
+  background-color: limegreen;
+  border-radius: 10px;
+}
+
+.winning-piece > .player-piece {
+  border: 3px solid black;
+}
